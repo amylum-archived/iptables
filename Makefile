@@ -35,7 +35,7 @@ build: submodule
 	cd $(BUILD_DIR) && ./autogen.sh
 	cd $(BUILD_DIR) && CC=musl-gcc CFLAGS='$(CFLAGS)' ./configure $(PATH_FLAGS) $(CONF_FLAGS)
 	patch -p1 -d $(BUILD_DIR) < patches/iptables-1.4.14-musl-fixes.patch
-	cd $(BUILD_DIR) && make install
+	cd $(BUILD_DIR) && make && make install
 	mkdir -p $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)
 	cp $(BUILD_DIR)/COPYING $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)/
 	cd $(RELEASE_DIR) && tar -czvf $(RELEASE_FILE) *
