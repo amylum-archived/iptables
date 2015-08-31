@@ -6,7 +6,7 @@ DEP_DIR = /tmp/dep-dir
 BUILD_DIR = /tmp/$(PACKAGE)-build
 RELEASE_DIR = /tmp/$(PACKAGE)-release
 RELEASE_FILE = /tmp/$(PACKAGE).tar.gz
-PATH_FLAGS = --prefix=$(RELEASE_DIR) --sbindir=$(RELEASE_DIR)/usr/bin --bindir=$(RELEASE_DIR)/usr/bin --mandir=$(RELEASE_DIR)/usr/share/man --libdir=$(RELEASE_DIR)/usr/lib --includedir=$(RELEASE_DIR)/usr/include --docdir=$(RELEASE_DIR)/usr/share/doc/$(PACKAGE) --sysconfdir=/etc
+PATH_FLAGS = --prefix=/usr --sbindir=/usr/bin --libexecdir=/usr/lib/iptables --sysconfdir=/etc
 CONF_FLAGS = --enable-static --disable-shared --with-pic
 CFLAGS = -static -static-libgcc -Wl,-static -lc -I$(DEP_DIR)/usr/include
 
@@ -36,7 +36,8 @@ build: submodule
 	cd $(BUILD_DIR) && CC=musl-gcc CFLAGS='$(CFLAGS)' ./configure $(PATH_FLAGS) $(CONF_FLAGS)
 	patch -p1 -d $(BUILD_DIR) < patches/iptables_upstream940.patch
 	patch -p1 -d $(BUILD_DIR) < patches/iptables-1.4.14-musl-fixes.patch
-	cd $(BUILD_DIR) && make && make install
+	cd $(BUILD_DIR) && make && make DESTDIR=$(RELEASE_DIR) install
+	rm -r $(RELEASE_DIR)/usr/lib/xtables
 	mkdir -p $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)
 	cp $(BUILD_DIR)/COPYING $(RELEASE_DIR)/usr/share/licenses/$(PACKAGE)/LICENSE
 	cd $(RELEASE_DIR) && tar -czvf $(RELEASE_FILE) *
