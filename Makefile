@@ -14,7 +14,13 @@ PACKAGE_VERSION = $$(git --git-dir=upstream/.git describe --tags | sed 's/v//')
 PATCH_VERSION = $$(cat version)
 VERSION = $(PACKAGE_VERSION)-$(PATCH_VERSION)
 
-.PHONY : default submodule manual container build version push local
+LIBNFTNL_VERSION = 1.0.5-1
+LIBNFTNL_URL = https://github.com/amylum/libnftnl/releases/download/$(LIBNFTNL_VERSION)/libnftnl.tar.gz
+LIBNFTNL_TAR = /tmp/libnftnl.tar.gz
+LIBNFTNL_DIR = /tmp/libnftnl
+LIBNFTNL_PATH = -I$(LIBNFTNL_DIR)/usr/include -L$(LIBNFTNL_DIR)/usr/lib
+
+.PHONY : default submodule deps manual container build version push local
 
 default: submodule container
 
@@ -27,13 +33,19 @@ manual: submodule
 container:
 	./meta/launch
 
-build: submodule
-	rm -rf $(BUILD_DIR) $(DEP_DIR)
+deps:
 	mkdir -p $(DEP_DIR)/usr/include/
 	cp -R /usr/include/{linux,asm,asm-generic} $(DEP_DIR)/usr/include/
+	rm -rf $(LIBNFTNL_DIR) $(LIBNFTNL_TAR)
+	mkdir $(LIBNFTNL_DIR)
+	curl -sLo $(LIBNFTNL_TAR) $(LIBNFTNL_URL)
+	tar -x -C $(LIBNFTNL_DIR) -f $(LIBNFTNL_TAR)
+
+build: submodule deps
+	rm -rf $(BUILD_DIR)
 	cp -R upstream $(BUILD_DIR)
 	cd $(BUILD_DIR) && ./autogen.sh
-	cd $(BUILD_DIR) && CC=musl-gcc CFLAGS='$(CFLAGS)' ./configure $(PATH_FLAGS) $(CONF_FLAGS)
+	cd $(BUILD_DIR) && CC=musl-gcc CFLAGS='$(CFLAGS) $(LIBNFTNL_PATH)' ./configure $(PATH_FLAGS) $(CONF_FLAGS)
 	patch -p1 -d $(BUILD_DIR) < patches/iptables-musl-fixes.patch
 	cd $(BUILD_DIR) && make && make DESTDIR=$(RELEASE_DIR) install
 	rm -r $(RELEASE_DIR)/usr/lib/xtables
