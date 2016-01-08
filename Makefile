@@ -55,7 +55,7 @@ build: submodule deps
 	rm -rf $(BUILD_DIR)
 	cp -R upstream $(BUILD_DIR)
 	cd $(BUILD_DIR) && ./autogen.sh
-	cd $(BUILD_DIR) && CC=musl-gcc CFLAGS='$(CFLAGS) $(LIBNFTNL_PATH) $(LIBMNL_PATH)' ./configure $(PATH_FLAGS) $(CONF_FLAGS)
+	cd $(BUILD_DIR) && CC=musl-gcc libnftnl_LIBS="-lnftnl" CFLAGS='$(CFLAGS) $(LIBNFTNL_PATH) $(LIBMNL_PATH)' ./configure $(PATH_FLAGS) $(CONF_FLAGS)
 	patch -p1 -d $(BUILD_DIR) < patches/iptables-musl-fixes.patch
 	cd $(BUILD_DIR) && make && make DESTDIR=$(RELEASE_DIR) install
 	rm -r $(RELEASE_DIR)/usr/lib/xtables
