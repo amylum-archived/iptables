@@ -14,7 +14,7 @@ PACKAGE_VERSION = $$(git --git-dir=upstream/.git describe --tags | sed 's/v//')
 PATCH_VERSION = $$(cat version)
 VERSION = $(PACKAGE_VERSION)-$(PATCH_VERSION)
 
-LIBNFTNL_VERSION = 1.0.5-2
+LIBNFTNL_VERSION = 1.0.5-3
 LIBNFTNL_URL = https://github.com/amylum/libnftnl/releases/download/$(LIBNFTNL_VERSION)/libnftnl.tar.gz
 LIBNFTNL_TAR = /tmp/libnftnl.tar.gz
 LIBNFTNL_DIR = /tmp/libnftnl
