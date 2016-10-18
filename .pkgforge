@@ -1,0 +1,34 @@
+name 'iptables'
+org 'amylum'
+
+licenses 'COPYING'
+
+deps(
+  libnftnl: '1.0.6-6',
+  libmnl: '1.0.4-4',
+  'linux-api-headers': '4.8-rc6-2'
+)
+
+configure_flags(
+  prefix: '/usr',
+  sbindir: '/usr/bin',
+  libexecdir: '/usr/lib/iptables',
+  sysconfdir: '/etc'
+)
+
+cflags
+harden
+
+patch 'iptables-musl-fixes.patch'
+
+build do
+  run './autogen.sh'
+  configure 'libnftnl_LIBS' => '-lnftnl'
+  make
+  install
+  rm 'usr/lib/xtables'
+end
+
+test do
+  # TODO: add tests
+end
