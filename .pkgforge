@@ -15,6 +15,7 @@ configure_flags(
   libexecdir: '/usr/lib/iptables',
   sysconfdir: '/etc'
 )
+remove_linker_archives
 
 cflags
 harden
