@@ -1,6 +1,6 @@
 [submodule "upstream"]
 	path = upstream
-	url = git://git.netfilter.org/iptables
+	url = https://git.netfilter.org/iptables
 [submodule "meta"]
 	path = meta
 	url = git://github.com/amylum/pkgforge-helper
