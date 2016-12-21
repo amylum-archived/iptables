@@ -4,7 +4,7 @@ org 'amylum'
 licenses 'COPYING'
 
 deps(
-  libnftnl: '1.0.6-10',
+  libnftnl: '1.0.7-1',
   libmnl: '1.0.4-8',
   'linux-api-headers': '4.9-1'
 )
