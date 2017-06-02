@@ -13,6 +13,7 @@ configure_flags(
   prefix: '/usr',
   sbindir: '/usr/bin',
   libexecdir: '/usr/lib/iptables',
+  'with-xtlibdir': '/usr/lib/iptables',
   sysconfdir: '/etc'
 )
 remove_linker_archives
@@ -27,7 +28,6 @@ build do
   configure 'libnftnl_LIBS' => '-lnftnl'
   make
   install
-  rm 'usr/lib/xtables'
 end
 
 test do
