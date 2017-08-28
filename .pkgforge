@@ -4,9 +4,18 @@ org 'amylum'
 licenses 'COPYING'
 
 deps(
-  libnftnl: '1.0.7-9',
-  libmnl: '1.0.4-16',
-  'linux-api-headers': '4.12-1'
+  libnftnl: {
+    version: '1.0.7-9',
+    checksum: '1b3f71415404c2d7fd639af9340fa1f420e03edb34f3bac34ca7294eb03b1deb'
+  },
+  libmnl: {
+    version: '1.0.4-16',
+    checksum: 'f91bd0ae906beb874dadd60ee571d5bedb6b3f6fb4e0fd1285a32e9697da3de4'
+  },
+  'linux-api-headers': {
+    version: '4.12-1',
+    checksum: '25d3672456a93cc7f6743d4b2c227ad7a9456f4ec2a9f09ab7f2e9e6cb56aeaa'
+  }
 )
 
 configure_flags(
