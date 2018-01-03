@@ -5,8 +5,8 @@ licenses 'COPYING'
 
 deps(
   libnftnl: {
-    version: '1.0.8-2',
-    checksum: 'bf34ab0a0ed84cc28590f9f003905b515eb7834cc79938003ebaeddff29efb69'
+    version: '1.0.9-1',
+    checksum: '9fa1b163d72aca03dd817e4f53205f8cda137978b996bc35b690e2afd080a71f'
   },
   libmnl: {
     version: '1.0.4-18',
