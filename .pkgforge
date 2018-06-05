@@ -5,16 +5,16 @@ licenses 'COPYING'
 
 deps(
   libnftnl: {
-    version: '1.1.0-1',
-    checksum: '9ecdd75817bc43f57bb29367478b7ba4910fc97e37f0b496d66cda0615b47747'
+    version: '1.1.0-2',
+    checksum: 'f3d30701b51c8b0208785c1e776977dae92f5a1686e0897016fc4f6bd94d59b4'
   },
   libmnl: {
-    version: '1.0.4-21',
-    checksum: 'e30db51239a7474c361d8d5cfb0e1c983b275e9a104225d048ed6162d07eeb80'
+    version: '1.0.4-22',
+    checksum: 'b7107d73ac741993743b40dea9075e3a070a7a1df6cfd5a83201fb17b48e7d13'
   },
   'linux-api-headers': {
-    version: '4.16-1',
-    checksum: '55af258de8663de5ec97db875651eaeecc209b47454dbbf27757d4de595e618d'
+    version: '4.17-1',
+    checksum: 'b2526797b346c73dc44da02dc16def8eb2059c02bd015f76497e9babadc1a44f'
   }
 )
 
