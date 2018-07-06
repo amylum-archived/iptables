@@ -34,7 +34,7 @@ patch 'iptables-musl-fixes.patch'
 
 build do
   run './autogen.sh'
-  configure 'libnftnl_LIBS' => '-lnftnl'
+  configure 'libnftnl_LIBS' => '-lnftnl', 'libnftnl_CFLAGS' => "-I#{dep(:libnftnl)}/usr/include -L#{dep(:libnftnl)}/usr/lib"
   make
   install
 end
