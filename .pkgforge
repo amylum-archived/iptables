@@ -4,6 +4,10 @@ org 'amylum'
 licenses 'COPYING'
 
 deps(
+  libnetfilter_conntrack: {
+    version: '1.0.7-1',
+    checksum: '2d83ad6792fdf797a540c93646259120294adcf5310fb4b644624be11d5f1107'
+  },
   libnfnetlink: {
     version: '1.0.1-2',
     checksum: '928594b7db50c2b8a83d9616ce16e4eaf17cfd0a4abccf37441f92f9b5c64d83'
