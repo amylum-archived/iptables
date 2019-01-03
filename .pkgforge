@@ -42,8 +42,13 @@ patch 'iptables-musl-fixes.patch'
 
 build do
   run './autogen.sh'
-  configure 'libnftnl_LIBS' => '-lnftnl', 'libnftnl_CFLAGS' => "-I#{dep(:libnftnl)}/usr/include -L#{dep(:libnftnl)}/usr/lib"
-  make
+  env = @forge.deps.keys.each_with_object({}) do |x, hash|
+    dir = dep(x)
+    hash["#{x}_CFLAGS"] = "-I#{dir}/usr/include -L#{dir}/usr/lib"
+    hash["#{x}_LIBS"] = "-l#{x.to_s.sub(/^lib/,'')} -L#{dir}/usr/lib"
+  end
+  configure env
+  make env
   install
 end
 
