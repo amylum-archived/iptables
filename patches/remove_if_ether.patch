@@ -1,0 +1,12 @@
+diff --git a/extensions/libebt_vlan.c b/extensions/libebt_vlan.c
+index 4a2eb71..98c5cc9 100644
+--- a/extensions/libebt_vlan.c
++++ b/extensions/libebt_vlan.c
+@@ -13,7 +13,6 @@
+ #include <ctype.h>
+ #include <xtables.h>
+ #include <linux/netfilter_bridge/ebt_vlan.h>
+-#include <linux/if_ether.h>
+ #include "iptables/nft.h"
+ #include "iptables/nft-bridge.h"
+ 

@@ -35,10 +35,12 @@ configure_flags(
 )
 remove_linker_archives
 
-cflags
 harden
+cflags
+cflags(['-Wno-error=format-security'])
 
-patch 'iptables-musl-fixes.patch'
+patch 'remove_if_ether.patch'
+patch 'libs_fix.patch'
 
 build do
   run './autogen.sh'
