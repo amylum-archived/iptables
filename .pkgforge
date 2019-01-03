@@ -5,8 +5,8 @@ licenses 'COPYING'
 
 deps(
   libnfnetlink: {
-    version: '1.0.1-1',
-    checksum: 'bd2dce19114050ca3a93dc0fc9a4d9fb7238de3336027fd0a1d496fb9eda96ad'
+    version: '1.0.1-2',
+    checksum: '928594b7db50c2b8a83d9616ce16e4eaf17cfd0a4abccf37441f92f9b5c64d83'
   },
   libnftnl: {
     version: '1.1.1-4',
