@@ -13,8 +13,8 @@ deps(
     checksum: '928594b7db50c2b8a83d9616ce16e4eaf17cfd0a4abccf37441f92f9b5c64d83'
   },
   libnftnl: {
-    version: '1.1.1-4',
-    checksum: '27831392b31f0ef32e5661c3abbd5b84a9219dd67bda7e33f64094224191a085'
+    version: '1.1.2-1',
+    checksum: 'a97c2cba61536d0eb8bdb520ce3c6ceb8b3c4587656c4d77d533e8a6078b313e'
   },
   libmnl: {
     version: '1.0.4-25',
