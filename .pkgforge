@@ -5,24 +5,24 @@ licenses 'COPYING'
 
 deps(
   libnetfilter_conntrack: {
-    version: '1.0.7-1',
-    checksum: '2d83ad6792fdf797a540c93646259120294adcf5310fb4b644624be11d5f1107'
+    version: '1.0.7-2',
+    checksum: 'b49cff742c102260ba2a2d9f00e03d42444d25a822b30f8b39bbe6df7690cd4c'
   },
   libnfnetlink: {
-    version: '1.0.1-2',
-    checksum: '928594b7db50c2b8a83d9616ce16e4eaf17cfd0a4abccf37441f92f9b5c64d83'
+    version: '1.0.1-3',
+    checksum: '4b624249f1adf3b16b384015fa5d5fa4069efafc016e7af89089dcaa8ef55c7e'
   },
   libnftnl: {
-    version: '1.1.2-1',
-    checksum: 'a97c2cba61536d0eb8bdb520ce3c6ceb8b3c4587656c4d77d533e8a6078b313e'
+    version: '1.1.2-2',
+    checksum: '1eceb4e9c279321d18f0516e6b3ea0b33fbdfe6fae7572c454fce707f88a4f84'
   },
   libmnl: {
-    version: '1.0.4-25',
-    checksum: 'b923bb247733a67b32ca0000f551a76d90132cf2f4192744b9a07b4a7218a766'
+    version: '1.0.4-26',
+    checksum: '3749c1571b4e80434f1ce1cfd078ebb757aa2bef6e485b507e6bb3e7a9221b91'
   },
   'linux-api-headers': {
-    version: '4.20-1',
-    checksum: 'aed037b2b3fb2df77ca19359a20188d39c25d011febf4d3733d251fa87ca9636'
+    version: '5.0-1',
+    checksum: '0703e1a5406fea7aa0072034e815fc2b3188151732ec61b134b0e54aa3e752ab'
   }
 )
 
